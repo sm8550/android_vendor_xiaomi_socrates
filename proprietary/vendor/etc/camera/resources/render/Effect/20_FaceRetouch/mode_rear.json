@@ -1,0 +1,24 @@
+{
+	"Type":"Effect",
+	"TrueSight":
+	[
+		{
+			"ConfigurePath":"Effects/1_SkinSmoothClassical/effect.json",
+			"Index":1,
+			"Mode":"Preview"
+		},
+		{
+			"ConfigurePath":"Effects/2_SkinSmoothRear/effect.json",
+			"Index":3,
+			"Mode":"Capture"
+		},
+		{
+			"Index":4,
+			"Mode":"Capture",
+			"FaceRetouchEngine":
+			{
+				"Enable":false
+			}
+		}
+	]
+}
