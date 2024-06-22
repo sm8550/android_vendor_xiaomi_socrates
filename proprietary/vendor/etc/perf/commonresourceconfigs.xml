@@ -348,6 +348,9 @@ need to be added just before the end of it's major group. -->
         <Minor OpcodeValue="0x16" Node="/dev/cpuctl/camera-daemon/cpu.uclamp.sched_boost_no_override" />
         <Minor OpcodeValue="0x17" Node="/dev/cpuctl/top-app/cpu.shares" />
 
+        <Minor OpcodeValue="0x4" Node="/proc/sys/walt/sched_em_inflate_pct" />
+        <Minor OpcodeValue="0x5" Node="/proc/sys/walt/sched_em_inflate_thres" />
+        <Minor OpcodeValue="0x6" Node="/proc/sys/walt/sched_heavy_nr" />
     <!-- sched2 major end -->
     <!--Add new resource expected value and write value in configs/test/common/perfcommonresourceconfigs.xml
     for support in regression framework-->

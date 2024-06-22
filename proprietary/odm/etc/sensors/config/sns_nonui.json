@@ -33,6 +33,15 @@
           "psensorThold1": {
             "ver": "0", "type": "flt", "data": "200"
           }
+    },
+    ".trackingParams":{
+      "owner": "sns_nonui",
+          "delta1": {
+            "ver": "0", "type": "flt", "data": "1000"
+          },
+          "delta2": {
+            "ver": "0", "type": "flt", "data": "400"
+          }
     }
   }
 }

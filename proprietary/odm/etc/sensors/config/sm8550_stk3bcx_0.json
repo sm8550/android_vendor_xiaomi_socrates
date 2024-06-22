@@ -173,6 +173,9 @@
         },
         "factory_ct_d5cm":{ "type": "flt", "ver": "0",
           "data": "0.0"
+        },
+        "factory_Ct_update":{ "type": "flt", "ver": "0",
+          "data": "698.0"
         }
       },
       ".fac_cal_original":{
@@ -194,6 +197,9 @@
         },
         "factory_ct_d5cm":{ "type": "flt", "ver": "0",
           "data": "0.0"
+        },
+        "factory_Ct_update":{ "type": "flt", "ver": "0",
+          "data": "698.0"
         }
       }
     },

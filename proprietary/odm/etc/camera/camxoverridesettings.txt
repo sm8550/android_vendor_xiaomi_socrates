@@ -2,21 +2,12 @@
 multiCameraLogicalXMLFile=socrates.xml
 
 # Camera Log
-overrideLogLevels=0x1
-logInfoMask=0
-logWarningMask=0
-logConfigMask=0
-logVerboseMask=0
-logCoreCfgMask=0
-logRequestMapping=FALSE
-systemLogEnable=TRUE
-enableAsciiLogging=0
-enableTxtLogging=0
-raiserecoverysigabrt=FALSE
+logInfoMask=0x10098
+overrideLogLevels=0x1F
+enableTxtLogging=1
+offlineLogNumber=20
 offlineLoggerEnableBackupLog=FALSE
-enableCameraCoreDumpBinary=FALSE
-enableCameraCoreDumpText=FALSE
-numConsecutiveRecovery=10
+raiserecoverysigabrt=TRUE
 
 #InSensorZoom
 enableInSensorZoom=TRUE
@@ -331,7 +322,7 @@ enablePDLibDump=3
 faceROISizeThresholdForMask=62500
 
 #systrace
-traceGroupsEnable=0
+traceGroupsEnable=0x10000000000100c0
 
 # EEPROM
 enableEEPROMBackup=TRUE

@@ -175,7 +175,7 @@
                     <snd_device_name>handset-mic</snd_device_name>
                 </custom-config>
                 <custom-config key="va-mic-enroll">
-                    <channels>2</channels>
+                    <channels>1</channels>
                     <samplerate>16000</samplerate>
                     <snd_device_name>va-mic-enroll</snd_device_name>
                 </custom-config>

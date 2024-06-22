@@ -1,5 +1,5 @@
 #!/vendor/bin/sh
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
 # Copyright (c) 2020-2021, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -36,6 +36,10 @@ else
     soc_hwid=`cat /sys/devices/system/soc/soc0/id`
 fi
 
+if [ -f /sys/devices/soc0/platform_subtype_id ]; then
+    subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
+fi
+
 case "$target" in
     "pineapple")
     #SOC ID for Pineapple is 557
@@ -57,8 +61,13 @@ case "$target" in
     ;;
     "kalama")
     #SOC ID for Kalama is 519
+    #SOC ID for Kalama SG36 is 600
+    #SOC ID for Kalama SG p is 601
     case "$soc_hwid" in
-      519)
+       519|600|601|603|604)
+        #Set property for kalama
+        #SOC ID for QCS Kalama is 603
+        #SOC ID for QCM Kalama is 604
         setprop vendor.display.enable_fb_scaling 0
         setprop vendor.display.target.version 4
         setprop vendor.gralloc.use_dma_buf_heaps 1
@@ -72,6 +81,11 @@ case "$target" in
         setprop vendor.display.enable_latch_media_content 1
         setprop vendor.display.enable_inline_writeback 0
         setprop vendor.display.timed_render_enable 1
+        setprop debug.sf.disable_client_composition_cache 0
+        # set property for HHG
+        if [ "$subtype_id" -eq 1 ]; then
+            setprop vendor.display.disable_system_load_check 1
+        fi
         ;;
     esac
     ;;

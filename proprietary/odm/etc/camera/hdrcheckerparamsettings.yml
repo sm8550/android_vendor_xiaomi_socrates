@@ -1,6 +1,6 @@
 #if there is any change, please modify the commiter and modification time when submitting
 commiter: 'chenyifei'
-timestamp: '202210181004'
+timestamp: '202211040947'
 product_name: "M2"
 platform: 'qcom'
 
@@ -56,7 +56,7 @@ trigger_param:
       detect_with_model:
         enable: [1, 0, 0, 0]
         prio1:
-          luxindex: [375, 385, 385, 385]
+          luxindex: [345, 385, 385, 385]
           dark_ratio: [0.2, 0.2, 0.2, 0.2]
           mid_ratio: [0.65, 0.5, 0.5, 0.5]
         prio2:
@@ -151,6 +151,10 @@ ev_setting:
       ev_limit: [-42, -42, -42, -42]
       ev_comp_coef: [-9, -6, -6, -6]
       min_exposure: [83126, 52598, 72900, 72900]
+      adrc_diff_comp:
+        luxindex: [335, 1000, 1000, 1000]
+        adrc_diff_th: [0.95, 1.0, 1.0, 1.0]
+        adrc_diff_addi: [1.5, 1.5, 1.5, 1.5]
       in_out_door:
         luxindex: [210, 200, 200, 200]
         shutter: [10, 10, 10, 10]

@@ -66,3 +66,17 @@ getpid: 1
 ppoll: 1
 rt_sigtimedwait: 1
 madvise: 1
+
+# added for get qesdk-manager pid
+getsockopt: 1
+
+# added for open/read QESDK Core binaries
+lseek: 1
+
+# added for netlink
+bind: 1
+sendmsg: 1
+recvmsg: 1
+
+# added for get gid
+getgid: 1

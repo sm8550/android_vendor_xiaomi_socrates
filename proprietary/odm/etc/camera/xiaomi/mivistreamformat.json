@@ -69,6 +69,24 @@ format: (refer to: system/core/include/system/graphics-base-vx.x.h)
                 ]
             },
             {
+                // RoleIdRearUltra
+                "RoleId" : 64,
+                "PhgStreamFormat": [
+                    {
+                        "phgType" : 1,
+                        "format" : [35]
+                    },
+                    {
+                        "phgType" : 3,
+                        "format" : [32]
+                    },
+                    {
+                        "phgType" : 9,
+                        "format" : [37]
+                    }
+                ]
+            },
+            {
                 // RoleIdRearBokeh2x
                 "RoleId" : 61,
                 "PhgStreamFormat": [

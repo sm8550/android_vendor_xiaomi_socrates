@@ -568,7 +568,8 @@
                                         "com.mg.ec",
                                         "jp.naver.line.android",
                                         "com.tencent.wework",
-                                        "com.happyteam.dubbingshow"]
+                                        "com.happyteam.dubbingshow",
+                                        "com.mi.health"]
         },
         {
             "ApkFunctionType":"FixReconfigFlash",
@@ -653,6 +654,15 @@
         {
             "ApkFunctionType":"SkipUselessFeature",
             "ApkTable" :[""]
+        },
+        {
+            "ApkFunctionType":"FallbackTrigger",
+            "ApkTable" :["com.gorgeous.lite",
+                        "com.tencent.mm"]
+        },
+        {
+            "ApkFunctionType":"DisablePrivatePort",
+            "ApkTable" :["com.instagram.android"]
         }
     ]
     ,
@@ -671,5 +681,6 @@
         }
     ],
     "CAMX__MAX_SR_SCALING": 2.0,
+    "CAMX__FRONT_MAX_SR_SCALING": 2.0,
     "__OVERLAP_NEW_CONFIG_INSERT_POINT__":0
 }

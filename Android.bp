@@ -8,6 +8,117 @@ soong_namespace {
 }
 
 android_app_import {
+	name: "QtiTelephonyService",
+	owner: "xiaomi",
+	apk: "proprietary/system_ext/app/QtiTelephonyService/QtiTelephonyService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libagm",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libagm.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libagm.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libar-pal",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libar-pal.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libar-pal.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libaudio_log_utils",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libaudio_log_utils.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libaudio_log_utils.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.AGMIPC@1.0-impl",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.pal@1.0-impl",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/vendor.qti.hardware.pal@1.0-impl.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+android_app_import {
 	name: "CACertService",
 	owner: "xiaomi",
 	apk: "proprietary/vendor/app/CACertService/CACertService.apk",
@@ -44,6 +155,17 @@ android_app_import {
 	name: "IWlanService",
 	owner: "xiaomi",
 	apk: "proprietary/vendor/app/IWlanService/IWlanService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	soc_specific: true,
+}
+
+android_app_import {
+	name: "QFingerprintService",
+	owner: "xiaomi",
+	apk: "proprietary/vendor/app/QFingerprintService/QFingerprintService.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -96,340 +218,27 @@ android_app_import {
 }
 
 android_app_import {
-	name: "PowerOffAlarm",
+	name: "goodix_sz",
 	owner: "xiaomi",
-	apk: "proprietary/product/app/PowerOffAlarm/PowerOffAlarm.apk",
+	apk: "proprietary/odm/app/goodix_sz/goodix_sz.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
 	},
-	product_specific: true,
-}
-
-android_app_import {
-	name: "uimgbaservice",
-	owner: "xiaomi",
-	apk: "proprietary/product/app/uimgbaservice/uimgbaservice.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	product_specific: true,
-}
-
-android_app_import {
-	name: "ImsRcsService",
-	owner: "xiaomi",
-	apk: "proprietary/system_ext/app/ImsRcsService/ImsRcsService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	system_ext_specific: true,
-}
-
-android_app_import {
-	name: "QtiTelephonyService",
-	owner: "xiaomi",
-	apk: "proprietary/system_ext/app/QtiTelephonyService/QtiTelephonyService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	system_ext_specific: true,
-}
-
-android_app_import {
-	name: "WfdService",
-	owner: "xiaomi",
-	apk: "proprietary/system_ext/priv-app/WfdService/WfdService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	system_ext_specific: true,
-}
-
-android_app_import {
-	name: "dpmserviceapp",
-	owner: "xiaomi",
-	apk: "proprietary/system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	system_ext_specific: true,
-}
-
-android_app_import {
-	name: "qcrilmsgtunnel",
-	owner: "xiaomi",
-	apk: "proprietary/system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	system_ext_specific: true,
+	device_specific: true,
 }
 
 dex_import {
-	name: "WfdCommon",
+	name: "androidx.camera.extensions.impl",
 	owner: "xiaomi",
-	jars: ["proprietary/system/framework/WfdCommon.jar"],
-}
-
-dex_import {
-	name: "uimgbalibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimgbalibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "uimgbamanagerlibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimgbamanagerlibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "uimremoteclientlibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimremoteclientlibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "uimremoteserverlibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimremoteserverlibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "uimremotesimlocklibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimremotesimlocklibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "uimservicelibrary",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/uimservicelibrary.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "com.qti.dpmframework",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/com.qti.dpmframework.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "dpmapi",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/dpmapi.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "qcrilhook",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/qcrilhook.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.hardware.alarm-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.hardware.data.latency-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.hardware.data.latency-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.callcapability-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.callcapability-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.callinfo-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.configservice-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.configservice-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.configservice-V1.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.configservice-V1.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.connection-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.connection-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.factory-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.factory-V1.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.factory-V2.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.factory-V2.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.factory-V2.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.factory-V2.2-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.factory-V2.2-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsconfig-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsconfig-V1.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsconfig-V1.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsconfig-V2.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsconfig-V2.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsconfig-V2.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsconfig-V2.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcssip-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcssip-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcssip-V1.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcssip-V1.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcssip-V1.2-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcssip-V1.2-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsuce-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsuce-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsuce-V1.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsuce-V1.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.ims.rcsuce-V1.2-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.ims.rcsuce-V1.2-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.latency-V2.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.latency-V2.0-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.latency-V2.1-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.latency-V2.1-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.latency-V2.2-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.latency-V2.2-java.jar"],
-	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.voiceprint-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar"],
-	system_ext_specific: true,
+	jars: ["proprietary/vendor/framework/androidx.camera.extensions.impl.jar"],
+	soc_specific: true,
 }
 
 prebuilt_etc_xml {
-	name: "android.hardware.drm-service.clearkey",
+	name: "AHBF@2.1-service",
 	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.drm-service.clearkey.xml",
+	src: "proprietary/vendor/etc/vintf/manifest/AHBF@2.1-service.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -445,9 +254,9 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "android.hardware.ir-service.example",
+	name: "android.hardware.graphics.mapper-impl-qti-display",
 	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.ir-service.example.xml",
+	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -517,6 +326,24 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+	name: "android.hardware.security.keymint-service-qti",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "android.hardware.usb@1.2-service",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
 	name: "bluetooth_audio",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/bluetooth_audio.xml",
@@ -571,6 +398,33 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+	name: "dumpstate-xiaomi",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/dumpstate-xiaomi.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "fod",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/fod.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "imsdcservice-saidl",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/imsdcservice-saidl.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
 	name: "manifest_android.hardware.drm-service.widevine",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml",
@@ -583,33 +437,6 @@ prebuilt_etc_xml {
 	name: "manifest_identity_credential",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/manifest_identity_credential.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_non_qmaa",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_non_qmaa.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_non_qmaa_extn",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "memtrack_qti",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/memtrack_qti.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -652,33 +479,6 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "vendor.qti.camera.aon-impl-1.3",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.camera.aon-impl-1.3.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.qti.camera.postproc-impl",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.camera.postproc-impl.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.qti.camera.provider",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.camera.provider.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
 	name: "vendor.qti.diag.hal.service",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml",
@@ -691,6 +491,24 @@ prebuilt_etc_xml {
 	name: "vendor.qti.gnss-service",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.gnss-service.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.hardware.display.allocator-service",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.display.allocator-service.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.hardware.display.composer-service",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -796,6 +614,15 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+	name: "vendor.qti.hardware.wifi.wificfr@1.0-service",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.wifi.wificfr@1.0-service.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
 	name: "vendor.qti.hardware.wifidisplaysession-service",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.wifidisplaysession-service.xml",
@@ -813,226 +640,6 @@ prebuilt_etc_xml {
 	soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-	name: "libagm",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libagm.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libagm.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libar-pal",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libar-pal.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libar-pal.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libthermalclient",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libthermalclient.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libthermalclient.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "vendor.qti.hardware.AGMIPC@1.0-impl",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "vendor.qti.hardware.pal@1.0-impl",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/vendor.qti.hardware.pal@1.0-impl.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libar-gsl",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libar-gsl.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libats",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libats.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "liblmthermallistner",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/liblmthermallistner.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "liblx-osal",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/liblx-osal.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libagmdevice",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/odm/lib64/libagmdevice.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "secure_element-service",
-	owner: "xiaomi",
-	src: "proprietary/system/etc/vintf/manifest/secure_element-service.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-}
-
-prebuilt_etc_xml {
-	name: "android.hardware.security.keymint-service-qti",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "android.hardware.thermal@2.0-service.qti",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "fod",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/fod.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
 prebuilt_etc_xml {
 	name: "vendor.xiaomi.hardware.displayfeature@1.0-service",
 	owner: "xiaomi",
@@ -1043,18 +650,9 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "vendor.xiaomi.hardware.micharge@1.0",
+	name: "vendor.xiaomi.modem.qms",
 	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge@1.0.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.xiaomi.hardware.quickcamera@1.0-service",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.quickcamera@1.0-service.xml",
+	src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.modem.qms.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -1088,6 +686,15 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+	name: "manifest_vendor.xiaomi.hardware.otrpagent@2.0",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.otrpagent@2.0.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
 	name: "manifest_vendor.xiaomi.hardware.tidaservice",
 	owner: "xiaomi",
 	src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.tidaservice.xml",
@@ -1097,27 +704,54 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+	name: "manifest_vendor.xiaomi.hardware.vsimapp",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.vsimapp.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "mrm",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/mrm.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.camera.aon-impl-1.3",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/vendor.qti.camera.aon-impl-1.3.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.camera.postproc-impl",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/vendor.qti.camera.postproc-impl.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.camera.provider",
+	owner: "xiaomi",
+	src: "proprietary/odm/etc/vintf/manifest/vendor.qti.camera.provider.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	device_specific: true,
+}
+
+prebuilt_etc_xml {
 	name: "vendor.xiaomi.hw.touchfeature@1.0-service",
 	owner: "xiaomi",
 	src: "proprietary/odm/etc/vintf/manifest/vendor.xiaomi.hw.touchfeature@1.0-service.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.xiaomi.sensor.citsensorservice@2.0-service",
-	owner: "xiaomi",
-	src: "proprietary/odm/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice@2.0-service.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.xiaomi.sensor.communicate@1.0_manifest",
-	owner: "xiaomi",
-	src: "proprietary/odm/etc/vintf/manifest/vendor.xiaomi.sensor.communicate@1.0_manifest.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	device_specific: true,
